@@ -1,0 +1,212 @@
+.vizora-viewer3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  background: radial-gradient(circle at center, #ffffff 0%, #f4f3ef 100%);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vizora-viewer3d--fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  border-radius: 0;
+  background: radial-gradient(circle at center, #ffffff 0%, #ebe8e1 100%);
+}
+
+.vizora-viewer3d__canvas-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  touch-action: none;
+}
+
+/* Floating Controls - Top */
+.vizora-viewer3d__top-bar {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.vizora-viewer3d__top-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.vizora-viewer3d__top-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.vizora-viewer3d__tool-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.vizora-viewer3d__tool-btn:hover {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+}
+
+.vizora-viewer3d__tool-btn--active {
+  background-color: var(--color-text-primary);
+  color: #ffffff;
+}
+
+.vizora-viewer3d__tool-btn--active:hover {
+  background-color: #272a31;
+  color: #ffffff;
+}
+
+/* Floating Controls - Bottom */
+.vizora-viewer3d__bottom-bar {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  pointer-events: none;
+  gap: 12px;
+}
+
+.vizora-viewer3d__hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(18, 19, 22, 0.8);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.vizora-viewer3d__env-selector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-subtle);
+  padding: 3px;
+  border-radius: var(--radius-full);
+  pointer-events: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.vizora-viewer3d__env-chip {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: var(--font-weight-medium);
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.vizora-viewer3d__env-chip:hover {
+  color: var(--color-text-primary);
+}
+
+.vizora-viewer3d__env-chip--active {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Loading Overlay */
+.vizora-viewer3d__loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(251, 250, 248, 0.95);
+  backdrop-filter: blur(4px);
+  z-index: 20;
+  gap: 12px;
+}
+
+.vizora-viewer3d__progress-track {
+  width: 180px;
+  height: 4px;
+  background-color: var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.vizora-viewer3d__progress-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  transition: width 0.2s ease-out;
+  border-radius: var(--radius-full);
+}
+
+/* Error Overlay */
+.vizora-viewer3d__error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-surface);
+  z-index: 20;
+  padding: var(--space-6);
+  text-align: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .vizora-viewer3d__hint {
+    display: none;
+  }
+}

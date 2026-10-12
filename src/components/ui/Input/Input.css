@@ -1,0 +1,84 @@
+.vizora-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+  font-family: var(--font-sans);
+}
+
+.vizora-input-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.vizora-input-control-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.vizora-input-control-container:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--focus-ring);
+}
+
+.vizora-input-control-container--error {
+  border-color: var(--color-danger);
+}
+
+.vizora-input-control-container--error:focus-within {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+.vizora-input-control-container--disabled {
+  background-color: var(--color-bg-subtle);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.vizora-input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  padding: 0 var(--space-3);
+  flex-shrink: 0;
+}
+
+.vizora-input-element {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  outline: none;
+  width: 100%;
+}
+
+.vizora-input-element::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.vizora-input-element:disabled {
+  cursor: not-allowed;
+}
+
+.vizora-input-helper {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.vizora-input-error {
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+  margin-top: 2px;
+}
